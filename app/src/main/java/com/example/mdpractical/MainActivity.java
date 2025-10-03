@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, UnitConverter.class);
                     startActivity(intent);
                 }
-                // Kung "Basic Calculator", wala lang kay naa nata diri
             }
 
             @Override
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 if (editText.getText().length() > 0) {
                     num1 = Double.parseDouble(editText.getText().toString());
                     isAddition = true;
-                    editText.setText(editText.getText().toString() + "+"); // show operator
+                    editText.setText("");
                 }
             }
         });
@@ -104,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
                 if (editText.getText().length() > 0) {
                     num1 = Double.parseDouble(editText.getText().toString());
                     isSubtraction = true;
-                    editText.setText(editText.getText().toString() + "-"); // show operator
-                }
-            }
+                    editText.setText("");
+    }
+}
         });
 
     // MULTIPLICATION
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 if (editText.getText().length() > 0) {
                     num1 = Double.parseDouble(editText.getText().toString());
                     isMultiplication = true;
-                    editText.setText(editText.getText().toString() + "×"); // show operator
+                    editText.setText("");
                 }
             }
         });
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 if (editText.getText().length() > 0) {
                     num1 = Double.parseDouble(editText.getText().toString());
                     isDivision = true;
-                    editText.setText(editText.getText().toString() + "÷"); // show operator
+                    editText.setText("");
                 }
             }
         });
@@ -161,17 +160,84 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Numbers
-        num1Button.setOnClickListener(new NumberClickListener("1"));
-        num2Button.setOnClickListener(new NumberClickListener("2"));
-        num3Button.setOnClickListener(new NumberClickListener("3"));
-        num4Button.setOnClickListener(new NumberClickListener("4"));
-        num5Button.setOnClickListener(new NumberClickListener("5"));
-        num6Button.setOnClickListener(new NumberClickListener("6"));
-        num7Button.setOnClickListener(new NumberClickListener("7"));
-        num8Button.setOnClickListener(new NumberClickListener("8"));
-        num9Button.setOnClickListener(new NumberClickListener("9"));
-        zeroButton.setOnClickListener(new NumberClickListener("0"));
+        num1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "1");
+            }
+        });
 
+        num2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "2");
+            }
+        });
+
+        num3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "3");
+            }
+        });
+
+        num4Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "4");
+            }
+        });
+
+        num5Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "5");
+            }
+        });
+
+        num6Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "6");
+            }
+        });
+
+        num7Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "7");
+            }
+        });
+
+        num8Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "8");
+            }
+        });
+
+        num9Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "9");
+            }
+        });
+
+        zeroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText(editText.getText().toString() + "0");
+            }
+        });
+
+        dotButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!editText.getText().toString().contains(".")) {
+                    editText.setText(editText.getText().toString() + ".");
+                }
+            }
+        });
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
