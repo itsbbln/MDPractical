@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if (selected.equals("Base Number Calculator")) {
                     Intent intent = new Intent(MainActivity.this, BaseNumberCalculator.class);
                     startActivity(intent);
+                    finish();
                 } else if (selected.equals("Unit Converter")) {
                     Intent intent = new Intent(MainActivity.this, UnitConverter.class);
                     startActivity(intent);

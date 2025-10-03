@@ -10,8 +10,8 @@
 
     <Spinner
         android:id="@+id/modeSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:backgroundTint="@color/blue"
         android:entries="@array/MDPractical"
@@ -30,7 +30,7 @@
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="6sp"
@@ -38,8 +38,8 @@
         android:focusableInTouchMode="false"
         android:hint="Enter Value"
         android:textAlignment="textEnd"
-        android:textSize="24dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="24dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -58,6 +58,7 @@
             android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:textSize="24sp"
             android:text="Total"
             android:textColor="@color/black"
@@ -66,8 +67,7 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp">
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/colorAccent"
                 android:textSize="25sp"
                 android:textColor="@color/black"
                 android:text="+" />
@@ -193,7 +193,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:textSize="25sp"
                 android:textColor="@color/black"
-                android:text="X" />
+                android:text="x" />
         </TableRow>
 
         <TableRow
@@ -247,9 +247,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
+        android:gravity="center_horizontal"
         android:layout_marginTop="6dp"
         android:backgroundTint="@color/green"
         android:text="="
         android:textColor="@color/black"
-        android:textSize="35sp" />
+        android:textSize="30sp" />
 </LinearLayout>

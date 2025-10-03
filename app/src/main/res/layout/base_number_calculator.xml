@@ -22,11 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="BASE NUMBER \CALCULATOR"
+        android:text="BASE NUMBER CALCULATOR"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
-
 
     <EditText
         android:id="@+id/inputNumber"
@@ -34,17 +33,18 @@
         android:layout_height="wrap_content"
         android:hint="Enter Decimal Number"
         android:inputType="number"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:padding="10dp"
-        android:backgroundTint="@color/blue"/>
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/convertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Convert"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/green"/>
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/resultBinary"
@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:text="Binary: "
         android:textSize="18sp"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -59,12 +60,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Octal: "
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/resultHex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hexadecimal: "
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
 </LinearLayout>
