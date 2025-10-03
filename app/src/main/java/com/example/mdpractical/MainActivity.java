@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mdpractical.R;
-
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
@@ -22,17 +20,38 @@ public class MainActivity extends AppCompatActivity {
     private Button num5Button, num6Button, num7Button, num8Button, num9Button, zeroButton, dotButton;
     private double num1, num2;
     private boolean isAddition, isSubtraction, isMultiplication, isDivision;
-
+    private Spinner modeSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic_calculator);
 
+        // Spinner setup
+        modeSpinner = findViewById(R.id.modeSpinner);
+        modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = parent.getItemAtPosition(position).toString();
+
+                if (selected.equals("Base Number Calculator")) {
+                    Intent intent = new Intent(MainActivity.this, BaseNumberCalculator.class);
+                    startActivity(intent);
+                } else if (selected.equals("Unit Converter")) {
+                    Intent intent = new Intent(MainActivity.this, UnitConverter.class);
+                    startActivity(intent);
+                }
+                // Kung "Basic Calculator", wala lang kay naa nata diri
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         editText = findViewById(R.id.editText2);
         resultText = findViewById(R.id.resultText);
         clearButton = findViewById(R.id.clear_text);
-
 
         addButton = findViewById(R.id.add);
         subtractButton = findViewById(R.id.sub);
@@ -52,64 +71,12 @@ public class MainActivity extends AppCompatActivity {
         zeroButton = findViewById(R.id.zero);
         dotButton = findViewById(R.id.dot);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editText.getText().length() > 0) {
-                    num1 = Double.parseDouble(editText.getText().toString());
-                    isAddition = true;
-
-                    // Clear the EditText for the next number
-                    editText.setText("");
-                }
-            }
-        });
-
-        subtractButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editText.getText().length() > 0) {
-                    num1 = Double.parseDouble(editText.getText().toString());
-                    isSubtraction = true;
-
-                    // Clear the EditText for the next number
-                    editText.setText("");
-                }
-            }
-        });
-
-        multiplyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editText.getText().length() > 0) {
-                    num1 = Double.parseDouble(editText.getText().toString());
-                    isMultiplication = true;
-
-                    // Clear the EditText for the next number
-                    editText.setText("");
-                }
-            }
-        });
-
-        divideButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editText.getText().length() > 0) {
-                    num1 = Double.parseDouble(editText.getText().toString());
-                    isDivision = true;
-
-                    // Clear the EditText for the next number
-                    editText.setText("");
-                }
-            }
-        });
-
+        // Clear button
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editText.setText("");
                 resultText.setText("0");
-                // Reset all flags
                 isAddition = false;
                 isSubtraction = false;
                 isMultiplication = false;
@@ -117,6 +84,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Operators
+        // ADDITION
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editText.getText().length() > 0) {
+                    num1 = Double.parseDouble(editText.getText().toString());
+                    isAddition = true;
+                    editText.setText(editText.getText().toString() + "+"); // show operator
+                }
+            }
+        });
+
+        // SUBTRACTION
+        subtractButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editText.getText().length() > 0) {
+                    num1 = Double.parseDouble(editText.getText().toString());
+                    isSubtraction = true;
+                    editText.setText(editText.getText().toString() + "-"); // show operator
+                }
+            }
+        });
+
+    // MULTIPLICATION
+        multiplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editText.getText().length() > 0) {
+                    num1 = Double.parseDouble(editText.getText().toString());
+                    isMultiplication = true;
+                    editText.setText(editText.getText().toString() + "×"); // show operator
+                }
+            }
+        });
+
+// DIVISION
+        divideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editText.getText().length() > 0) {
+                    num1 = Double.parseDouble(editText.getText().toString());
+                    isDivision = true;
+                    editText.setText(editText.getText().toString() + "÷"); // show operator
+                }
+            }
+        });
+
+        // Equal
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                             resultText.setText("Error");
                         }
                     }
-                    // Reset all flags
                     isAddition = false;
                     isSubtraction = false;
                     isMultiplication = false;
@@ -144,83 +160,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        num1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "1");
-            }
-        });
-
-        num2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "2");
-            }
-        });
-
-        num3Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "3");
-            }
-        });
-
-        num4Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "4");
-            }
-        });
-
-        num5Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "5");
-            }
-        });
-
-        num6Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "6");
-            }
-        });
-
-        num7Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "7");
-            }
-        });
-
-        num8Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "8");
-            }
-        });
-
-        num9Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "9");
-            }
-        });
-
-        zeroButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setText(editText.getText().toString() + "0");
-            }
-        });
+        // Numbers
+        num1Button.setOnClickListener(new NumberClickListener("1"));
+        num2Button.setOnClickListener(new NumberClickListener("2"));
+        num3Button.setOnClickListener(new NumberClickListener("3"));
+        num4Button.setOnClickListener(new NumberClickListener("4"));
+        num5Button.setOnClickListener(new NumberClickListener("5"));
+        num6Button.setOnClickListener(new NumberClickListener("6"));
+        num7Button.setOnClickListener(new NumberClickListener("7"));
+        num8Button.setOnClickListener(new NumberClickListener("8"));
+        num9Button.setOnClickListener(new NumberClickListener("9"));
+        zeroButton.setOnClickListener(new NumberClickListener("0"));
 
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!editText.getText().toString().contains(".")) {
-                    editText.setText(editText.getText().toString() + ".");
+                String current = editText.getText().toString();
+                if (!current.contains(".")) {
+                    editText.setText(current + ".");
                 }
             }
         });
+    }
+
+    // Helper class for numbers
+    private class NumberClickListener implements View.OnClickListener {
+        private String value;
+        NumberClickListener(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public void onClick(View v) {
+            editText.setText(editText.getText().toString() + value);
+        }
     }
 }
