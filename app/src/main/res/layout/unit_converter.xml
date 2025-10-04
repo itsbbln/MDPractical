@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Mode switching spinner -->
+    <Spinner
+        android:id="@+id/modeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blue"
+        android:entries="@array/MDPractical"
+        android:spinnerMode="dropdown"
+        android:textAlignment="textStart" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNIT CONVERTER"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Conversion type spinner -->
+    <Spinner
+        android:id="@+id/conversionTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blue"
+        android:entries="@array/conversionTypes"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center" />
+
+    <!-- Input value -->
+    <EditText
+        android:id="@+id/inputValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter value"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- From and To spinners -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="16dp">
+
+        <Spinner
+            android:id="@+id/fromUnitSpinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:spinnerMode="dropdown"/>
+
+        <Spinner
+            android:id="@+id/toUnitSpinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:spinnerMode="dropdown"/>
+    </LinearLayout>
+
+    <!-- Convert button -->
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Convert"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Result -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result: "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+</LinearLayout>

@@ -5,4 +5,45 @@
         <item>Base Number Calculator</item>
         <item>Unit Converter</item>
     </string-array>
+
+    <string-array name="baseNum">baseNum>
+        <item>Decimal</item>
+        <item>Binary</item>
+        <item>Octal</item>
+        <item>Hexadecimal</item>
+    </string-array>
+    <string-array name="resultOptions">resultOptions>
+        <item>Show All</item>
+        <item>Decimal</item>
+        <item>Binary</item>
+        <item>Octal</item>
+        <item>Hexadecimal</item>
+    </string-array>
+
+    <string-array name="conversionTypes">
+        <item>Length</item>
+        <item>Weight</item>
+        <item>Currency</item>
+    </string-array>
+
+    <string-array name="lengthUnits">
+        <item>Meters</item>
+        <item>Kilometers</item>
+        <item>Centimeters</item>
+        <item>Inches</item>
+        <item>Feet</item>
+    </string-array>
+
+    <string-array name="weightUnits">
+        <item>Grams</item>
+        <item>Kilograms</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+    </string-array>
+
+    <string-array name="currencyUnits">
+        <item>PHP</item>
+        <item>USD</item>
+    </string-array>
+
 </resources>

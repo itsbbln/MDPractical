@@ -7,6 +7,7 @@
     android:padding="16dp"
     android:background="@color/white">
 
+    <!-- Mode Switcher Spinner -->
     <Spinner
         android:id="@+id/modeSpinner"
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
         android:spinnerMode="dropdown"
         android:textAlignment="textStart" />
 
+    <!-- Title -->
     <TextView
         android:id="@+id/Title"
         android:layout_width="wrap_content"
@@ -27,6 +29,18 @@
         android:textColor="@color/black"
         android:textStyle="bold"/>
 
+    <!-- Spinner: Select Input Type -->
+    <Spinner
+        android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blue"
+        android:entries="@array/baseNum"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center" />
+
+    <!-- Enter Decimal Input -->
     <EditText
         android:id="@+id/inputNumber"
         android:layout_width="match_parent"
@@ -35,8 +49,10 @@
         android:inputType="number"
         android:textSize="24sp"
         android:padding="10dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:gravity="center"/>
 
+    <!-- Convert Button -->
     <Button
         android:id="@+id/convertButton"
         android:layout_width="wrap_content"
@@ -46,28 +62,50 @@
         android:backgroundTint="@color/green"
         android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/resultBinary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Binary: "
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"/>
+    <!-- Spinner: Select which results to show -->
+    <Spinner
+        android:id="@+id/resultOptions"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:entries="@array/resultOptions"
+        android:spinnerMode="dropdown"
+        android:textAlignment="textEnd" />
 
-    <TextView
-        android:id="@+id/resultOctal"
-        android:layout_width="wrap_content"
+    <!-- Results Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Octal: "
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/resultHex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hexadecimal: "
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/resultBinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Binary: "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/resultOctal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Octal: "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/resultHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hexadecimal: "
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
 </LinearLayout>
