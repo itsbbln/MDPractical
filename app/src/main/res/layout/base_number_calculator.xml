@@ -45,8 +45,8 @@
         android:id="@+id/inputNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Decimal Number"
-        android:inputType="number"
+        android:hint="Enter Base Number"
+
         android:textSize="24sp"
         android:padding="10dp"
         android:textColor="@color/black"
