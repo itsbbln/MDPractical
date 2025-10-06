@@ -31,6 +31,7 @@ public class UnitConverter extends AppCompatActivity {
         inputValue = findViewById(R.id.inputValue);
         convertButton = findViewById(R.id.convertButton);
         resultText = findViewById(R.id.resultText);
+        modeSpinner.setSelection(2);
 
         // Mode spinner navigation
         modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

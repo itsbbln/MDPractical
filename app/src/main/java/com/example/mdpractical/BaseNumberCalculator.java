@@ -15,7 +15,7 @@ public class BaseNumberCalculator extends AppCompatActivity {
 
     private EditText inputNumber;
     private Button convertButton;
-    private TextView resultBinary, resultOctal, resultHex;
+    private TextView resultBinary, resultOctal, resultHex, resultDec;
     private Spinner modeSpinner, typeSpinner, resultOptions;
 
     @Override
@@ -33,6 +33,7 @@ public class BaseNumberCalculator extends AppCompatActivity {
         resultBinary = findViewById(R.id.resultBinary);
         resultOctal = findViewById(R.id.resultOctal);
         resultHex = findViewById(R.id.resultHex);
+        resultDec = findViewById(R.id.resultDec);
 
         // ✅ Set spinner default to "Base Number Calculator"
         modeSpinner.setSelection(1); // 0=Basic, 1=BaseNum, 2=Unit
@@ -70,58 +71,72 @@ public class BaseNumberCalculator extends AppCompatActivity {
                 try {
                     // Which type user selected (Decimal, Binary, Octal, Hex)
                     String selectedType = typeSpinner.getSelectedItem().toString();
-                    int decimal = 0;
+                    int decimalValue = 0;
 
                     switch (selectedType) {
                         case "Decimal":
-                            decimal = Integer.parseInt(input, 10);
+                            decimalValue = Integer.parseInt(input, 10);
                             break;
                         case "Binary":
-                            decimal = Integer.parseInt(input, 2);
+                            decimalValue = Integer.parseInt(input, 2);
                             break;
                         case "Octal":
-                            decimal = Integer.parseInt(input, 8);
+                            decimalValue = Integer.parseInt(input, 8);
                             break;
                         case "Hexadecimal":
-                            decimal = Integer.parseInt(input, 16);
+                            decimalValue = Integer.parseInt(input, 16);
                             break;
                     }
 
                     // Conversion from decimal to others
-                    String binary = Integer.toBinaryString(decimal);
-                    String octal = Integer.toOctalString(decimal);
-                    String hex = Integer.toHexString(decimal).toUpperCase();
+                    String binary = Integer.toBinaryString(decimalValue);
+                    String octal = Integer.toOctalString(decimalValue);
+                    String hex = Integer.toHexString(decimalValue).toUpperCase();
+                    String decimal = String.valueOf(decimalValue);
 
-                    // ✅ Apply result option filter
+                    // Apply result option filter
                     String resultOption = resultOptions.getSelectedItem().toString();
 
                     if (resultOption.equals("Show All")) {
                         resultBinary.setVisibility(View.VISIBLE);
                         resultOctal.setVisibility(View.VISIBLE);
                         resultHex.setVisibility(View.VISIBLE);
+                        resultDec.setVisibility(View.VISIBLE);
 
                         resultBinary.setText("Binary: " + binary);
                         resultOctal.setText("Octal: " + octal);
                         resultHex.setText("Hexadecimal: " + hex);
+                        resultDec.setText("Decimal: " + decimal);
 
-                    } else if (resultOption.equals("Binary Only")) {
+                    } else if (resultOption.equals("Decimal")) {
+                        resultBinary.setVisibility(View.GONE);
+                        resultOctal.setVisibility(View.GONE);
+                        resultHex.setVisibility(View.GONE);
+                        resultDec.setVisibility(View.VISIBLE);
+
+                        resultDec.setText("Decimal: " + decimal);
+
+                    } else if (resultOption.equals("Binary")) {
                         resultBinary.setVisibility(View.VISIBLE);
                         resultOctal.setVisibility(View.GONE);
                         resultHex.setVisibility(View.GONE);
+                        resultDec.setVisibility(View.GONE);
 
                         resultBinary.setText("Binary: " + binary);
 
-                    } else if (resultOption.equals("Octal Only")) {
+                    } else if (resultOption.equals("Octal")) {
                         resultBinary.setVisibility(View.GONE);
                         resultOctal.setVisibility(View.VISIBLE);
                         resultHex.setVisibility(View.GONE);
+                        resultDec.setVisibility(View.GONE);
 
                         resultOctal.setText("Octal: " + octal);
 
-                    } else if (resultOption.equals("Hexadecimal Only")) {
+                    } else if (resultOption.equals("Hexadecimal")) {
                         resultBinary.setVisibility(View.GONE);
                         resultOctal.setVisibility(View.GONE);
                         resultHex.setVisibility(View.VISIBLE);
+                        resultDec.setVisibility(View.GONE);
 
                         resultHex.setText("Hexadecimal: " + hex);
                     }

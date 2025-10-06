@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.basic_calculator);
 
         // Spinner
+        modeSpinner = findViewById(R.id.modeSpinner) ;
         modeSpinner.setSelection(0); // assuming 0=Basic, 1=BaseNum, 2=Unit
         modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
